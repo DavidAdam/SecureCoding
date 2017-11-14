@@ -241,3 +241,43 @@ public class MainActivity extends AppCompatActivity {
    };
 }
 ```
+
+Próbálja ki az alkalmazást emulátor segítségével! A login gombot megnyomva jelentkezzen be!
+
+(Egyelőre semmi nem fog még történni, hiszen authentikáció hatására az Android alkalmazásunk egy Access Token-t kapott a default jogosultságkörrel.)
+
+#### Kérdezze le a felhasználó nevét és azonosítóját! (name, id)
+
+Használja fel az előző lépésben implementált Facebook Login funkció által biztosított Access Token-t a felhasználó nevének és azonosítójának lekérdezésére!
+
+A funkciót végző metódus:
+
+```java
+private void getUserNameAndId(final AccessToken accessToken) {
+   GraphRequest request = GraphRequest.newMeRequest(
+         accessToken,
+         new GraphRequest.GraphJSONObjectCallback() {
+            @Override
+            public void onCompleted(
+                  JSONObject object,
+                  GraphResponse response) {
+               Log.d(LOG_TAG, object.toString());
+               try {
+                  Toast.makeText(MainActivity.this, "Welcome " + object.getString("name"), Toast.LENGTH_SHORT).show();
+               } catch (JSONException e) {
+                  e.printStackTrace();
+               }
+            }
+         });
+   Bundle parameters = new Bundle();
+   parameters.putString("fields", "id,name");
+   request.setParameters(parameters);
+   request.executeAsync();
+}
+```
+
+Hívja meg az előző metódust az *onSuccess* bekövetkezésekor: (*onSuccess*-be)
+
+```java
+getUserNameAndId(loginResult.getAccessToken());
+```
