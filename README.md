@@ -160,4 +160,84 @@ Engedélyezzük az alkalmazás Internet elérést az alábbi engedéllyel: (*And
 <uses-permission android:name="android.permission.INTERNET" />
 ```
 
+Adjon hozzá egy Facebook Login gombot a felülethez! (*activity_main.xml RelativeLayout* tag-be)
 
+```xml
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout android:id="@+id/activity_main"
+   xmlns:android="http://schemas.android.com/apk/res/android"
+   xmlns:tools="http://schemas.android.com/tools"
+   android:layout_width="match_parent"
+   android:layout_height="match_parent"
+   android:paddingBottom="@dimen/activity_vertical_margin"
+   android:paddingLeft="@dimen/activity_horizontal_margin"
+   android:paddingRight="@dimen/activity_horizontal_margin"
+   android:paddingTop="@dimen/activity_vertical_margin"
+   tools:context="hu.bme.securecoding.oauthexample.MainActivity">
+
+   <com.facebook.login.widget.LoginButton
+      android:id="@+id/login_button"
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      android:layout_gravity="center_horizontal"
+      android:layout_marginTop="30dp"
+      android:layout_marginBottom="30dp" />
+
+</RelativeLayout>
+```
+
+Végül jelenítse meg log üzenetben a bejelentkezés eredményét!
+
+```java
+public class MainActivity extends AppCompatActivity {
+
+   private static final String LOG_TAG = "secure_coding_oauth";
+
+   private CallbackManager callbackManager;
+
+   @Override
+   public void onCreate(Bundle savedInstanceState) {
+      super.onCreate(savedInstanceState);
+      setContentView(R.layout.activity_main);
+      facebookSDKInitialize();
+
+      final LoginButton loginButton = findViewById(R.id.login_button);
+      loginButton.registerCallback(callbackManager, facebookCallback);
+   }
+
+   protected void facebookSDKInitialize() {
+      callbackManager = CallbackManager.Factory.create();
+   }
+
+   @Override
+   protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+      super.onActivityResult(requestCode, resultCode, data);
+      callbackManager.onActivityResult(requestCode, resultCode, data);
+   }
+
+   private FacebookCallback<LoginResult> facebookCallback = new FacebookCallback<LoginResult>() {
+      @Override
+      public void onSuccess(final LoginResult loginResult) {
+         if (loginResult.getAccessToken() != null && loginResult.getAccessToken().getPermissions() != null) {
+            String accessTokenPermissions = "";
+            for (final String permission : loginResult.getAccessToken().getPermissions()) {
+               accessTokenPermissions += permission + "\n";
+            }
+            Log.d(LOG_TAG, "Login successful! Access token permissions:\n" + accessTokenPermissions);
+         } else {
+            Log.d(LOG_TAG, "Login successful! No permissions!");
+         }
+      }
+
+      @Override
+      public void onCancel() {
+         Log.d(LOG_TAG, "Login onCancel");
+      }
+
+      @Override
+      public void onError(final FacebookException error) {
+         Log.d(LOG_TAG, "Error! \n" + error.toString());
+      }
+   };
+}
+```
