@@ -22,7 +22,7 @@ Az OAuth engedélyezés során általánosságban a felhasználótól engedélyt
 
 <img src="./assets/diagram_2.png" width="650" align="middle">
 
-Az Authorization Code vagy Server Side Flow szerver alkalmazásokhoz lett kifejlesztve. A felhasználói engedély után a szerver egy Authorization kódot küld, melyet a kliens a Client ID és Client Secret komponensekkel együtt access tokenre cserél (szerver hívásokon keresztül, tehát a hozzáférési token és a Client Secret rejtve marad a felhasználó szemszögéből).
+Az Authorization Grant vagy Server Side Flow szerver alkalmazásokhoz lett tervezve. A felhasználói engedély után a szerver egy Authorization kódot küld, melyet a kliens a Client ID és Client Secret komponensekkel együtt access tokenre cserél (szerver hívásokon keresztül, tehát a hozzáférési token és a Client Secret rejtve marad a felhasználó szemszögéből). A Refresh Token támogatott.
 
 A (többek között Facebook OAuth) folyamat szemléltetésére és kipróbálására nagyon jó felületet nyújt a TEMBOO nevű weboldal:
 https://temboo.com
@@ -56,6 +56,7 @@ Az első és második linken töltse ki az **AppID** illetve az **AppID/AppSecre
 #### 1. Engedély kérése
 
 Az alábbi linken (1/3) indítsa el az OAuth folyamatot:
+
 https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/
 
 * Adja meg a Facebook alkalmazása App ID értékét (https://developers.facebook.com/apps/)
@@ -67,14 +68,19 @@ Ilyenkor egy *Authorization Code*-t kap válaszként a Temboo, melyet eltárol.
 #### 2. Authorization Code kicserélése Access Token-re
 
 A következő link (2/3) segítségével cseréljük ki az *Authorization Code*-ot *Access Token*-re.
+
 https://temboo.com/library/Library/Facebook/OAuth/FinalizeOAuth/
+
 Ismét adja meg az **AppID** és **AppSecret** értékeit a Facebook alkalmazásból, illetve adja meg az előző (Engedély kérése) hívás során kapott *CallbackID* értéket is (az 1/3 link egyik mezőjéből olvasható), amelyben a Temboo tárolja az előzőleg kapott *Authorization code*-ot
 
 Egy új mezőben megjön válaszul az *Access Token*-t, ami már felhasználható a felhasználó erőforrásainak (a felhasználó által deklarált hatókörű) elérésére.
 
 #### 3. Erőforrás elérése az Access Token segítségével
+
 Kérje le a felhasználó adatait a kapott *Access Token* segítségével az alábbi linket (3/3) használva!
+
 https://temboo.com/library/Library/Facebook/Reading/User/
+
 A **Fields** mezőt hagyja alapértelmezetten (*id, name*), a **ResponseFormat** mezőbe viszont írjon *xml*-t, így az ékezetek is megjelennek a válaszban.
 
 Figyelje meg, ha a 3-as lépésben megpróbáljuk az alapértelmezett **Fields mezőben** az *id,name,email* adatokat lekérni, azt tapasztalja, hogy csak az *id* és *name* értéket kapja meg így is.
@@ -82,17 +88,28 @@ Figyelje meg, ha a 3-as lépésben megpróbáljuk az alapértelmezett **Fields m
 **Miért?**
 
 **Válasz:**
+
 Azért, mert az email lekérdezéséhez nem elég az alap jogosultsági körrel rendelkező *Access Token*.
 
 Ha bővebb hatáskörű *Access Token*-re van szükség, bővíteni kell az 1. lépés **Scope** mezőjét a megfelelő *Permission* értékekkel.
 
 #### Önálló feladat
+
 Generáljon Access Token-t, amivel már lekérdezhető a felhasználó email címe is!
 
 Segítség:
+
 https://developers.facebook.com/docs/facebook-login/permissions/v2.0
+
 (Scope bővítése a megfelelő engedéllyel, Fields mezőbe a lekérdezendő paraméter, többi lépés ugyanaz.)
 
 ### Implicit Grant
 
+<img src="./assets/diagram_4.png" width="650" align="middle">
+
+Az Implicit Grant kliens oldali alkalmazásokhoz lett tervezve, mint például egy böngészőben futó JavaScript. Miután az egész alkalazás kód hozzáférhető, a Client Secret nem tárolható kliens oldalon. A kliens authentikációra azonnal megérkezik az Access Token. Ez a flow nem támogatja a Refresh Token-eket, ha az Access Token lejár, újat kell kérni.
+
+#### Előkészületek
+* Törölje az alkalmazás felhasználótól kért engedélyeit! (Legegyszerűbben belép a fiókjába/teszt felhasználó fiókjába, akitől az alkalmazás engedélyeket kért, majd beállítások > alkalmazások, és az X segítségével távolítsa el az alkalmazást. **Vigyázat**, ne a Developer Console-ból törölje az alkalmazást, hiszen az alkalmazásra továbbra is szükség lesz, hanem a felhasználó alkalmazásai közül, tehát amik engedélyt kértek a felhasználó adatlapjához, abból a listából!)
+* Nyissa meg az Android Studio-t, és Open Project opciót választva nyissa meg a következő kiinduló projektet!
 
