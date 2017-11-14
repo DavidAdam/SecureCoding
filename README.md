@@ -72,4 +72,10 @@ Ismét adja meg az AppID és AppSecret értékeit a Facebook alkalmazásból, il
 
 Egy új mezőben megjön válaszul az *Access Token*-t, ami már felhasználható a felhasználó erőforrásainak (a felhasználó által deklarált hatókörű) elérésére.
 
+#### 3. Erőforrás elérése az Access Token segítségével
+Kérje le a felhasználó adatait a kapott *Access Token* segítségével az alábbi linket (3/3) használva!
+https://temboo.com/library/Library/Facebook/Reading/User/
+A **Fields** mezőt hagyja alapértelmezetten (id, name), a **ResponseFormat** mezőbe viszont írjon *xml*-t, így az ékezetek is megjelennek a válaszban.
+
+
 ### Implicit Grant
