@@ -147,9 +147,17 @@ Nyissa meg az *AndroidManifest.xml* fájlt, és az *application* tagen belülre 
 </activity>
 ```
 
-A konfiguráció hivatkozik két szöveges erőforrásra, amelyeket a *strings.xml* fájlba vegyen fel!
+A konfiguráció hivatkozik két szöveges erőforrásra, amelyeket a *strings.xml* fájlba vegyen fel, behelyettesítve a Facebook alkalmazás APPID értékét!
 
 ```xml
 <string name="facebook_app_id">APPID</string>
 <string name="fb_login_protocol_scheme">fbAPPID</string>
 ```
+
+Engedélyezzük az alkalmazás Internet elérést az alábbi engedéllyel: (*AndroidManifest.xml manifest* tag-en belülre)
+
+```xml
+<uses-permission android:name="android.permission.INTERNET" />
+```
+
+
