@@ -86,4 +86,13 @@ Azért, mert az email lekérdezéséhez nem elég az alap jogosultsági körrel 
 
 Ha bővebb hatáskörű *Access Token*-re van szükség, bővíteni kell az 1. lépés **Scope** mezőjét a megfelelő *Permission* értékekkel.
 
+#### Önálló feladat
+Generáljon Access Token-t, amivel már lekérdezhető a felhasználó email címe is!
+
+Segítség:
+https://developers.facebook.com/docs/facebook-login/permissions/v2.0
+(Scope bővítése a megfelelő engedéllyel, Fields mezőbe a lekérdezendő paraméter, többi lépés ugyanaz.)
+
 ### Implicit Grant
+
+
