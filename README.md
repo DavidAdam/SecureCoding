@@ -34,10 +34,14 @@ Kövessük a **Setup Instructions** részben leírtakat (amennyiben nem szeretn�
 * Facebook developer account készítése
 * Facebook app készítése **Facebook developer console**-ban
 * **Website** platform option választása
-* **Site URL** beállítása (tesztelési célnál bármilyen valid URL jó: http://temboo.com)
+* **Site URL** beállítása (http://{accountname}.temboolive.com/callback/)
+* **Add product** Facebook Login (Platform legyen Android)
 * **Facebook Login > Client OAuth Settings**, Temboo callback URL megadása a **Valid OAuth redirect URIs** mezőbe:
 
-| https://{ACCOUNT_NAME}.temboolive.com/callback/ |
+https://{ACCOUNT_NAME}.temboolive.com/callback/
+* **Settings > Basic > App Domains** mezőbe ugyanezt
+--- |
+
 
 
 ### Implicit Grant
