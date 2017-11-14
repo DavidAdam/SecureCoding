@@ -111,6 +111,6 @@ Az Implicit Grant kliens oldali alkalmazásokhoz lett tervezve, mint például e
 
 #### Előkészületek:
 * Törölje az alkalmazás felhasználótól kért engedélyeit! (Legegyszerűbben belép a fiókjába/teszt felhasználó fiókjába, akitől az alkalmazás engedélyeket kért, majd beállítások > alkalmazások, és az X segítségével távolítsa el az alkalmazást. **Vigyázat**, ne a Developer Console-ból törölje az alkalmazást, hiszen az alkalmazásra továbbra is szükség lesz, hanem a felhasználó alkalmazásai közül, tehát amik engedélyt kértek a felhasználó adatlapjához, abból a listából!)
-* Nyissa meg az Android Studio-t, és Open Project opciót választva nyissa meg a következő kiinduló projektet!
+* Nyissa meg az Android Studio-t, és Open Project opciót választva nyissa meg a következő [kiinduló projekt](./assets/start.zip)et!
 
 
