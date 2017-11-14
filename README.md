@@ -45,9 +45,17 @@ https://{ACCOUNT_NAME}.temboolive.com/callback/
 
 Ezekkel a beállításokkal a Temboo profil/webalkalmazás került összekötésre a Facebook alkalmazással. A Temboo a *Facebook App ID* értékből tudja elindítani a kéréseket a Facebook App felé, a Facebook App pedig a *callback url*-en keresztül tudja a válaszokat visszajuttatni a Temboo-nak.
 
+A következő feladathoz érdemes az alábbi 3 linket egymás mellé sorban megnyitni a böngészőben:
+
+* https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/
+* https://temboo.com/library/Library/Facebook/OAuth/FinalizeOAuth/
+* https://temboo.com/library/Library/Facebook/Reading/User/
+
+Az első és második linken töltse ki az AppID illetve az AppID/AppSecret mezőket a Facebook alkalmazás adataival. (Érdemes elmenteni a jobb felső gombbal profilba, hogy ne kelljen később ismét beilleszteni!)
+
 #### 1. Engedély kérése
 
-Az alábbi linken indítsa el az OAuth folyamatot:
+Az alábbi linken (1/3) indítsa el az OAuth folyamatot:
 https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/
 
 * Adja meg a Facebook alkalmazása App ID értékét (https://developers.facebook.com/apps/)
