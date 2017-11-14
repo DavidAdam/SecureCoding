@@ -47,9 +47,9 @@ Ezekkel a beállításokkal a Temboo profil/webalkalmazás került összekötés
 
 A következő feladathoz érdemes az alábbi 3 linket egymás mellé sorban megnyitni a böngészőben:
 
-* https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/
-* https://temboo.com/library/Library/Facebook/OAuth/FinalizeOAuth/
-* https://temboo.com/library/Library/Facebook/Reading/User/
+* https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/ **(1/3)**
+* https://temboo.com/library/Library/Facebook/OAuth/FinalizeOAuth/ **(2/3)**
+* https://temboo.com/library/Library/Facebook/Reading/User/ **(3/3)**
 
 Az első és második linken töltse ki az AppID illetve az AppID/AppSecret mezőket a Facebook alkalmazás adataival. (Érdemes elmenteni a jobb felső gombbal profilba, hogy ne kelljen később ismét beilleszteni!)
 
@@ -65,5 +65,11 @@ https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/
 Ilyenkor egy *Authorization Code*-t kap válaszként a Temboo, melyet eltárol.
 
 #### 2. Authorization Code kicserélése Access Token-re
+
+A következő link (2/3) segítségével cseréljük ki az *Authorization Code*-ot *Access Token*-re.
+https://temboo.com/library/Library/Facebook/OAuth/FinalizeOAuth/
+Ismét adja meg az AppID és AppSecret értékeit a Facebook alkalmazásból, illetve adja meg az előző (Engedély kérése) hívás során kapott *CallbackID* értéket is (az 1/3 link egyik mezőjéből olvasható), amelyben a Temboo tárolja az előzőleg kapott *Authorization code*-ot
+
+Egy új mezőben megjön válaszul az *Access Token*-t, ami már felhasználható a felhasználó erőforrásainak (a felhasználó által deklarált hatókörű) elérésére.
 
 ### Implicit Grant
