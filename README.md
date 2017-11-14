@@ -51,7 +51,7 @@ A következő feladathoz érdemes az alábbi 3 linket egymás mellé sorban megn
 * https://temboo.com/library/Library/Facebook/OAuth/FinalizeOAuth/ **(2/3)**
 * https://temboo.com/library/Library/Facebook/Reading/User/ **(3/3)**
 
-Az első és második linken töltse ki az AppID illetve az AppID/AppSecret mezőket a Facebook alkalmazás adataival. (Érdemes elmenteni a jobb felső gombbal profilba, hogy ne kelljen később ismét beilleszteni!)
+Az első és második linken töltse ki az **AppID** illetve az **AppID/AppSecret** mezőket a Facebook alkalmazás adataival. (Érdemes elmenteni a jobb felső gombbal profilba, hogy ne kelljen később ismét beilleszteni!)
 
 #### 1. Engedély kérése
 
@@ -59,8 +59,8 @@ Az alábbi linken (1/3) indítsa el az OAuth folyamatot:
 https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/
 
 * Adja meg a Facebook alkalmazása App ID értékét (https://developers.facebook.com/apps/)
-* A Scope mezőt hagyjuk üresen (default érték = nyilvános profil)
-* Az AuthorizationURL mezőben található az engedélykérő link, nyissuk meg, jelentkezzen  be Facebook fiókjába (vagy a laborvezetőtől kapott teszt felhasználóba), majd engedélyezzük a nyilvános profil elérését az alkalmazásnak.
+* A **Scope** mezőt hagyjuk üresen (default érték = nyilvános profil)
+* Az **AuthorizationURL** mezőben található az engedélykérő link, nyissuk meg, jelentkezzen  be Facebook fiókjába (vagy a laborvezetőtől kapott teszt felhasználóba), majd engedélyezzük a nyilvános profil elérését az alkalmazásnak.
 
 Ilyenkor egy *Authorization Code*-t kap válaszként a Temboo, melyet eltárol.
 
@@ -68,14 +68,22 @@ Ilyenkor egy *Authorization Code*-t kap válaszként a Temboo, melyet eltárol.
 
 A következő link (2/3) segítségével cseréljük ki az *Authorization Code*-ot *Access Token*-re.
 https://temboo.com/library/Library/Facebook/OAuth/FinalizeOAuth/
-Ismét adja meg az AppID és AppSecret értékeit a Facebook alkalmazásból, illetve adja meg az előző (Engedély kérése) hívás során kapott *CallbackID* értéket is (az 1/3 link egyik mezőjéből olvasható), amelyben a Temboo tárolja az előzőleg kapott *Authorization code*-ot
+Ismét adja meg az **AppID** és **AppSecret** értékeit a Facebook alkalmazásból, illetve adja meg az előző (Engedély kérése) hívás során kapott *CallbackID* értéket is (az 1/3 link egyik mezőjéből olvasható), amelyben a Temboo tárolja az előzőleg kapott *Authorization code*-ot
 
 Egy új mezőben megjön válaszul az *Access Token*-t, ami már felhasználható a felhasználó erőforrásainak (a felhasználó által deklarált hatókörű) elérésére.
 
 #### 3. Erőforrás elérése az Access Token segítségével
 Kérje le a felhasználó adatait a kapott *Access Token* segítségével az alábbi linket (3/3) használva!
 https://temboo.com/library/Library/Facebook/Reading/User/
-A **Fields** mezőt hagyja alapértelmezetten (id, name), a **ResponseFormat** mezőbe viszont írjon *xml*-t, így az ékezetek is megjelennek a válaszban.
+A **Fields** mezőt hagyja alapértelmezetten (*id, name*), a **ResponseFormat** mezőbe viszont írjon *xml*-t, így az ékezetek is megjelennek a válaszban.
 
+Figyelje meg, ha a 3-as lépésben megpróbáljuk az alapértelmezett **Fields mezőben** az *id,name,email* adatokat lekérni, azt tapasztalja, hogy csak az *id* és *name* értéket kapja meg így is.
+
+**Miért?**
+
+**Válasz:**
+Azért, mert az email lekérdezéséhez nem elég az alap jogosultsági körrel rendelkező *Access Token*.
+
+Ha bővebb hatáskörű *Access Token*-re van szükség, bővíteni kell az 1. lépés **Scope** mezőjét a megfelelő *Permission* értékekkel.
 
 ### Implicit Grant
