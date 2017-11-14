@@ -43,5 +43,6 @@ https://{ACCOUNT_NAME}.temboolive.com/callback/
 
 * **Settings > Basic > App Domains** mezőbe ugyanezt
 
+Ezekkel a beállításokkal a Temboo profilunkat/webalkalmazásunkat kötöttük össze a Facebook alkalmazásunkkal. A Temboo a *Facebook App ID* értékből tudja elindítani a kéréseket a Facebook App felé, a Facebook App pedig a *callback url*-en keresztül tudja a válaszokat visszajuttatni a temboo-nak.
 
 ### Implicit Grant
