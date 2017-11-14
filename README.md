@@ -43,6 +43,19 @@ https://{ACCOUNT_NAME}.temboolive.com/callback/
 
 * **Settings > Basic > App Domains** mezőbe ugyanezt
 
-Ezekkel a beállításokkal a Temboo profilunkat/webalkalmazásunkat kötöttük össze a Facebook alkalmazásunkkal. A Temboo a *Facebook App ID* értékből tudja elindítani a kéréseket a Facebook App felé, a Facebook App pedig a *callback url*-en keresztül tudja a válaszokat visszajuttatni a temboo-nak.
+Ezekkel a beállításokkal a Temboo profil/webalkalmazás került összekötésre a Facebook alkalmazással. A Temboo a *Facebook App ID* értékből tudja elindítani a kéréseket a Facebook App felé, a Facebook App pedig a *callback url*-en keresztül tudja a válaszokat visszajuttatni a Temboo-nak.
+
+#### 1. Engedély kérése
+
+Az alábbi linken indítsa el az OAuth folyamatot:
+https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/
+
+* Adja meg a Facebook alkalmazása App ID értékét (https://developers.facebook.com/apps/)
+* A Scope mezőt hagyjuk üresen (default érték = nyilvános profil)
+* Az AuthorizationURL mezőben található az engedélykérő link, nyissuk meg, jelentkezzen  be Facebook fiókjába (vagy a laborvezetőtől kapott teszt felhasználóba), majd engedélyezzük a nyilvános profil elérését az alkalmazásnak.
+
+Ilyenkor egy *Authorization Code*-t kap válaszként a Temboo, melyet eltárol.
+
+#### 2. Authorization Code kicserélése Access Token-re
 
 ### Implicit Grant
