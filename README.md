@@ -109,7 +109,8 @@ https://developers.facebook.com/docs/facebook-login/permissions/v2.0
 
 Az Implicit Grant kliens oldali alkalmazásokhoz lett tervezve, mint például egy böngészőben futó JavaScript. Miután az egész alkalazás kód hozzáférhető, a Client Secret nem tárolható kliens oldalon. A kliens authentikációra azonnal megérkezik az Access Token. Ez a flow nem támogatja a Refresh Token-eket, ha az Access Token lejár, újat kell kérni.
 
-#### Előkészületek
+#### Előkészületek:
 * Törölje az alkalmazás felhasználótól kért engedélyeit! (Legegyszerűbben belép a fiókjába/teszt felhasználó fiókjába, akitől az alkalmazás engedélyeket kért, majd beállítások > alkalmazások, és az X segítségével távolítsa el az alkalmazást. **Vigyázat**, ne a Developer Console-ból törölje az alkalmazást, hiszen az alkalmazásra továbbra is szükség lesz, hanem a felhasználó alkalmazásai közül, tehát amik engedélyt kértek a felhasználó adatlapjához, abból a listából!)
 * Nyissa meg az Android Studio-t, és Open Project opciót választva nyissa meg a következő kiinduló projektet!
+
 
