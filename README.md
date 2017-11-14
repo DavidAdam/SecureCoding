@@ -10,6 +10,8 @@
 * Facebook account (www.facebook.com) (Aki nem szeretné a labor gépeken megadni a bejelentkezési adatait, vagy nem rendelkezik Facebook fiókkal, akkor használja a laborvezető által adott teszt felhasználót)
 * Temboo account (www.temboo.com)
 
+## Áttekintés
+
 <img src="./assets/diagram_1.png" width="650" align="middle">
 
 Az OAuth engedélyezés során általánosságban a felhasználótól engedélyt kérünk az erőfforásainak elérésére, amelyet ha megad, valamilyen engedélyezési kódot kapunk (A-B), az engedélyezési kódot hozzáférési tokenre cseréljük (C-D), majd a hozzáférési token segítségével hozzáférhetünk a felhasználó erőforrásaihoz (E-F).
@@ -17,5 +19,25 @@ Az OAuth engedélyezés során általánosságban a felhasználótól engedélyt
 ## Grant típusok, OAuth flow-k
 
 ### Authorization Grant
+
+<img src="./assets/diagram_2.png" width="650" align="middle">
+
+Az Authorization Code vagy Server Side Flow szerver alkalmazásokhoz lett kifejlesztve. A felhasználói engedély után a szerver egy Authorization kódot küld, melyet a kliens a Client ID és Client Secret komponensekkel együtt access tokenre cserél (szerver hívásokon keresztül, tehát a hozzáférési token és a Client Secret rejtve marad a felhasználó szemszögéből).
+
+A (többek között Facebook OAuth) folyamat szemléltetésére és kipróbálására nagyon jó felületet nyújt a TEMBOO nevű weboldal:
+https://temboo.com
+
+Regisztráció után nyissuk meg a Facebook-hoz kapcsolódó szolgáltatásaikat:
+https://temboo.com/library/Library/Facebook/
+
+Kövessük a **Setup Instructions** részben leírtakat (amennyiben nem szeretné a labor során a Facebook fiókját használni, ez a lépés kihagyható, de kísérje figyelemmel a lépéseket!):
+* Facebook developer account készítése
+* Facebook app készítése **Facebook developer console**-ban
+* **Website** platform option választása
+* **Site URL** beállítása (tesztelési célnál bármilyen valid URL jó: http://temboo.com)
+* **Facebook Login > Client OAuth Settings**, Temboo callback URL megadása a **Valid OAuth redirect URIs** mezőbe:
+
+| https://{ACCOUNT_NAME}.temboolive.com/callback/ |
+
 
 ### Implicit Grant
