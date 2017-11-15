@@ -8,7 +8,7 @@
 
 ## Előkövetelmények a labor teljesítéséhez:
 
-* Facebook account (www.facebook.com) (Aki nem szeretné az emulátoron megadni a bejelentkezési adatait, vagy nem rendelkezik Facebook fiókkal, akkor generáljon teszt felhasználót a Developer Facebook segítségével)
+* Facebook account (www.facebook.com) (Aki nem szeretné az emulátoron megadni a bejelentkezési adatait, akkor generáljon teszt felhasználót a Developer Facebook segítségével)
 * Temboo account (www.temboo.com)
 
 ## Áttekintés
