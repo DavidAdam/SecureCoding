@@ -242,7 +242,7 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
-Próbálja ki az alkalmazást emulátor segítségével! A login gombot megnyomva jelentkezzen be!
+**Próbálja ki az alkalmazást emulátor segítségével! A login gombot megnyomva jelentkezzen be!**
 
 (Egyelőre semmi nem fog még történni, hiszen authentikáció hatására az Android alkalmazásunk egy Access Token-t kapott a default jogosultságkörrel.)
 
@@ -276,8 +276,28 @@ private void getUserNameAndId(final AccessToken accessToken) {
 }
 ```
 
+Figyelje meg, hogyan kerül beállításra, hogy mely felhasználói attribútumokat kéri le a *Request*!
+
 Hívja meg az előző metódust az *onSuccess* bekövetkezésekor: (*onSuccess*-be)
 
 ```java
 getUserNameAndId(loginResult.getAccessToken());
 ```
+
+**Próbálja ki az alkalmazást!**
+
+#### Önálló feladat
+
+Bővítse az alkalmazást úgy, hogy az alkalmazás a felhasználó email címét is lekérdezze!
+
+Segítség:
+
+*Request* által lekérdezett attribútumok bővítése:
+
+```java
+parameters.putString("fields", "id,name");
+```
+
+A Login gomb által igényelt Access Token default scope bővítése:
+
+A felhasználó email címe nem látszódik, hiszen a Login gomb default jogosultságú Access Token-t igényel, amelybe az email cím nem tartozik bele.
