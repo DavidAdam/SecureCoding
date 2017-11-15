@@ -257,7 +257,7 @@ keytool -exportcert -alias plicprintdebugkey -keystore ~/.android/debug.keystore
 
 *Save change* után a hibaüzenetre **Use this package name**.
 
-**Próbálja ki az alkalmazást emulátor segítségével! A login gombot megnyomva jelentkezzen be!**
+**Próbálja ki az alkalmazást! A login gombot megnyomva jelentkezzen be!** (Amennyiben emulátoron jelentkezik be, és a beviteli mező nem támogatja a hosszú e-mail cím beillesztését, akkor kattintson az e-mail beviteli mezőre, hogy fókuszban legyen, majd az Android Studio terminálján használja a következő parancsot: adb shell input text EMAIL_ADDRESS)
 
 (Egyelőre semmi nem fog még történni, hiszen authentikáció hatására az Android alkalmazásunk egy Access Token-t kapott a default jogosultságkörrel.)
 
@@ -310,9 +310,13 @@ Segítség:
 *Request* által lekérdezett attribútumok bővítése:
 
 ```java
-parameters.putString("fields", "id,name");
+parameters.putString("fields", "ATTR1, ATTR2, ...");
 ```
 
 A Login gomb által igényelt Access Token default scope bővítése:
 
-A felhasználó email címe nem látszódik, hiszen a Login gomb default jogosultságú Access Token-t igényel, amelybe az email cím nem tartozik bele.
+```java
+loginButton.setReadPermissions(Arrays.asList("PERMISSION1", "PERMISSION2", ...));
+```
+
+https://developers.facebook.com/docs/facebook-login/permissions/v2.0
