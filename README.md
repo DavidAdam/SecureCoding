@@ -242,6 +242,19 @@ public class MainActivity extends AppCompatActivity {
 }
 ```
 
+Ahhoz, hogy Android kliensről hozzáférjen az alkalmazásához, hozzá kell adni az Android platformot a Facebook Developer segítségével:
+
+**Settings > Basic > Add Platform > Android**
+
+Kitöltendő mezők:
+* Google Play Package Name: hu.bme.securecoding.oauthexample
+* Class Name: MainActivity
+* Key Hashes: az alábbi terminal parancs kimenete
+
+```
+keytool -exportcert -alias plicprintdebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
+```
+
 **Próbálja ki az alkalmazást emulátor segítségével! A login gombot megnyomva jelentkezzen be!**
 
 (Egyelőre semmi nem fog még történni, hiszen authentikáció hatására az Android alkalmazásunk egy Access Token-t kapott a default jogosultságkörrel.)
