@@ -8,7 +8,7 @@
 
 ## Előkövetelmények a labor teljesítéséhez:
 
-* Facebook account (www.facebook.com) (Aki nem szeretné a labor gépeken megadni a bejelentkezési adatait, vagy nem rendelkezik Facebook fiókkal, akkor használja a laborvezető által adott teszt felhasználót)
+* Facebook account (www.facebook.com) (Aki nem szeretné az emulátoron megadni a bejelentkezési adatait, vagy nem rendelkezik Facebook fiókkal, akkor generáljon teszt felhasználót a Developer Facebook segítségével)
 * Temboo account (www.temboo.com)
 
 ## Áttekintés
@@ -62,7 +62,7 @@ https://temboo.com/library/Library/Facebook/OAuth/InitializeOAuth/
 
 * Adja meg a Facebook alkalmazása App ID értékét (https://developers.facebook.com/apps/)
 * A **Scope** mezőt hagyjuk üresen (default érték = nyilvános profil)
-* Az **AuthorizationURL** mezőben található az engedélykérő link, nyissuk meg, jelentkezzen  be Facebook fiókjába (vagy a laborvezetőtől kapott teszt felhasználóba), majd engedélyezzük a nyilvános profil elérését az alkalmazásnak.
+* Az **AuthorizationURL** mezőben található az engedélykérő link, nyissuk meg, jelentkezzen  be Facebook fiókjába (vagy a generált teszt felhasználóba), majd engedélyezzük a nyilvános profil elérését az alkalmazásnak.
 
 Ilyenkor egy *Authorization Code*-t kap válaszként a Temboo, melyet eltárol.
 
@@ -341,3 +341,9 @@ Laborvezető és a Chrome Developer Tools segítségével tanulmányozza az olda
 ### QuoteStore: First version
 
 ### Multilevel Login
+
+## Troublehshooting
+
+https://stackoverflow.com/questions/31879804/you-are-not-logged-in-please-log-in-and-try-again
+
+https://stackoverflow.com/questions/30559887/how-to-generate-a-facebook-release-key-hash-on-mac
