@@ -249,11 +249,13 @@ Ahhoz, hogy Android kliensről hozzáférjen az alkalmazásához, hozzá kell ad
 Kitöltendő mezők:
 * Google Play Package Name: hu.bme.securecoding.oauthexample
 * Class Name: MainActivity
-* Key Hashes: az alábbi terminal parancs kimenete
+* Key Hashes: az alábbi openssl parancs kimenete
 
 ```
 keytool -exportcert -alias plicprintdebugkey -keystore ~/.android/debug.keystore | openssl sha1 -binary | openssl base64
 ```
+
+*Save change* után a hibaüzenetre **Use this package name**.
 
 **Próbálja ki az alkalmazást emulátor segítségével! A login gombot megnyomva jelentkezzen be!**
 
