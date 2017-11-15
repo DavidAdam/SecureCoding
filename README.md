@@ -4,6 +4,7 @@
 
 * A Temboo segítségével alapvető információk lekérdezése a felhasználóról.
 * A labor során egy Android alkalmazást kell készíteni, amely a Facebook OAuth2 API-ját felhasználva engedélyt kér a felhasználó erőforrásaihoz, majd lekérdez néhány információt a felhasználóról.
+* Avatao feladatok
 
 ## Előkövetelmények a labor teljesítéséhez:
 
@@ -320,3 +321,23 @@ loginButton.setReadPermissions(Arrays.asList("PERMISSION1", "PERMISSION2", ...))
 ```
 
 https://developers.facebook.com/docs/facebook-login/permissions/v2.0
+
+## Avatao feladatok (LAB 5 Authentication)
+
+Oldja meg a laborvezetővel közösen az alábbi feladatokat!
+
+### Password Recovery
+
+A feladat a gyenge biztonsági kérdések kockázatára mutat rá. Az admin biztonsági kérdése is a "Melyik szín a kedvenced?", a színekből pedig nincs is olyan sok, ezért a megoldás könnyen kitalálható.
+
+### Controlling Access
+
+Laborvezető és a Chrome Developer Tools segítségével tanulmányozza az oldal forráskódját.
+
+Értse meg a weboldalon található gombok működését! A View Profile gomb value attribútumának értéke sokat segít a megoldás kitalálásában.
+
+**Önálló feladatok**
+
+### QuoteStore: First version
+
+### Multilevel Login
