@@ -349,3 +349,5 @@ Laborvezető és a Chrome Developer Tools segítségével tanulmányozza az olda
 https://stackoverflow.com/questions/31879804/you-are-not-logged-in-please-log-in-and-try-again
 
 https://stackoverflow.com/questions/30559887/how-to-generate-a-facebook-release-key-hash-on-mac
+
+https://developers.facebook.com/docs/apps/test-users/
