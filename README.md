@@ -8,7 +8,7 @@
 
 ## Előkövetelmények a labor teljesítéséhez:
 
-* Facebook account (www.facebook.com) (Aki nem szeretné az emulátoron megadni a bejelentkezési adatait, akkor generáljon teszt felhasználót a Developer Facebook segítségével)
+* Facebook account (www.facebook.com) (Az alkalmazás készítése után érdemes teszt felhasználót generálni Developer Facebook segítségével.)
 * Temboo account (www.temboo.com)
 
 ## Áttekintés
@@ -28,10 +28,12 @@ Az Authorization Grant vagy Server Side Flow szerver alkalmazásokhoz lett terve
 A (többek között Facebook OAuth) folyamat szemléltetésére és kipróbálására nagyon jó felületet nyújt a TEMBOO nevű weboldal:
 https://temboo.com
 
+Regisztráljon a temboo.com-on! (Amennyiben nincs Facebook fiókja, használja a laborvezető által adott Temboo bejelentkezési adatokat!)
+
 Regisztráció után nyissuk meg a Facebook-hoz kapcsolódó szolgáltatásaikat:
 https://temboo.com/library/Library/Facebook/
 
-Kövessük a **Setup Instructions** részben leírtakat (amennyiben nem szeretné a labor során a Facebook fiókját használni, ez a lépés kihagyható, de kísérje figyelemmel a lépéseket!):
+Kövessük a **Setup Instructions** részben leírtakat (amennyiben nincs Facebook fiókja, a laborvezetővel közös Temboo fiókot használva kísérje figyelemmel a lépéseket!):
 * Facebook developer account készítése
 * Facebook app készítése **Facebook developer console**-ban
 * **Website** platform option választása
@@ -148,7 +150,7 @@ Nyissa meg az *AndroidManifest.xml* fájlt, és az *application* tagen belülre 
 </activity>
 ```
 
-A konfiguráció hivatkozik két szöveges erőforrásra, amelyeket a *strings.xml* fájlba vegyen fel, behelyettesítve a Facebook alkalmazás APPID értékét!
+A konfiguráció hivatkozik két szöveges erőforrásra, amelyeket a *strings.xml* fájlba vegyen fel, behelyettesítve a Facebook alkalmazás APPID értékét! (Amennyibn nem rendelkezik Facebook fiókkal, használja a laborvezető által adott AppID értéket, ami a közös Temboo fiókban is megadásra került!)
 
 ```xml
 <string name="facebook_app_id">APPID</string>
